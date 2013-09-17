@@ -7,17 +7,21 @@ public class Location {
 	public float z;
 	public float yaw;   //Up and down
 	public float pitch; //Left and right
+
+   private World world;
 	
-	public Location(float x, float y, float z, float pitch, float yaw){
+	public Location(World world, float x, float y, float z, float pitch, float yaw){
 		this.setX(x);
 		this.setY(y); 
 		this.setZ(z);
 		this.setPitch(pitch);
 		this.setYaw(yaw);
+      this.setWorld(world);
+
 	}
 	
-	public Location(float x, float y, float z){
-		this(x, y, z, 0, 0);
+	public Location(World world, float x, float y, float z){
+		this(world, x, y, z, 0, 0);
 	}
 	
 
@@ -61,4 +65,11 @@ public class Location {
 		this.pitch = pitch;
 	}
 
+   public World getWorld() {
+      return world;
+   }
+
+   public void setWorld(World world) {
+      this.world = world;
+   }
 }
