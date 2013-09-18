@@ -71,6 +71,6 @@ public class Block{
 	}
 
 	public Block getRelative(BlockFace face){
-
+		return null;
 	}
 }
