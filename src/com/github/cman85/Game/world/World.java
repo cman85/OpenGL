@@ -1,7 +1,5 @@
 package com.github.cman85.Game.world;
 
-import java.util.HashMap;
-
 public class World{
 
 	private Location spawnLocation;
@@ -12,7 +10,7 @@ public class World{
 		int x = 0;
 		int z = 0;
 		for(int i = 0; i < loadedChunks.length; i++){
-			loadedChunks[i] = new Chunk(this, z += 16, z += 16);
+			loadedChunks[i] = new Chunk(this, x += 16, z += 16);
 		}
 	}
 
