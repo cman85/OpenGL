@@ -24,7 +24,7 @@ public class Entity {
    public void move(float amt, float direction) {
       getLocation().setZ((float)(getLocation().getZ() + (getSpeed() * amt * Engine.getDelta() * Math.sin(Math.toRadians(getLocation().getYaw() + 90 * direction)))));
       getLocation().setX((float)(getLocation().getX() + (getSpeed() * amt * Engine.getDelta() * Math.cos(Math.toRadians(getLocation().getYaw() + 90 * direction)))));
-      Display.setTitle(String.format("Location x:%f, y:%f, z:%f", getLocation().getX(), getLocation().getY(), getLocation().getZ()));
+     // Display.setTitle(String.format("Location x:%f, y:%f, z:%f", getLocation().getX(), getLocation().getY(), getLocation().getZ()));
    }
 
    protected void moveY(float amt) {

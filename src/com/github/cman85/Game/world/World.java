@@ -1,6 +1,9 @@
 package com.github.cman85.Game.world;
 
-public class World{
+import com.github.cman85.Game.Main.Game;
+import com.github.cman85.Game.Main.Renderable;
+
+public class World implements Renderable{
 
 	private Location spawnLocation;
 	private Chunk[] loadedChunks = new Chunk[5];
@@ -14,6 +17,12 @@ public class World{
 		}
 	}
 
+	public void render(){
+		Chunk[] chunks = getChunks();
+		for(int i = 0; i < chunks.length; i++){
+			chunks[i].render();
+		}
+	}
 	public Location getSpawnLocation(){
 		return spawnLocation;
 	}
@@ -25,5 +34,6 @@ public class World{
 	public Chunk[] getChunks(){
 		return loadedChunks;
 	}
+
 
 }

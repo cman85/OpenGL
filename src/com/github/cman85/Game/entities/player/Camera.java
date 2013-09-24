@@ -37,6 +37,7 @@ public class Camera{
 
 		glEnable(GL_DEPTH_TEST);
 		glEnable(GL_TEXTURE);
+		glEnable(GL_TEXTURE_2D);
 	}
 
 	public void rotateY(float amt){

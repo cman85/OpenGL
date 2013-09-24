@@ -47,7 +47,6 @@ public class Main{
 	private void createWindow() throws LWJGLException{
 		evaluateScreenSize();
 		Display.setDisplayMode(new DisplayMode(width, height));
-		Display.setFullscreen(true);
 		Display.setVSyncEnabled(true);
 		Display.create();
 	}

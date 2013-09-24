@@ -10,9 +10,10 @@ import org.lwjgl.opengl.Display;
 import static org.lwjgl.opengl.GL11.GL_COLOR_BUFFER_BIT;
 import static org.lwjgl.opengl.GL11.GL_DEPTH_BUFFER_BIT;
 import static org.lwjgl.opengl.GL11.glClear;
+import static org.lwjgl.opengl.GL11.glClearColor;
 import static org.lwjgl.opengl.GL11.glLoadIdentity;
 
-public class Screen3D{
+public class Screen3D implements Renderable{
 
 	private Player player;
 
@@ -33,6 +34,7 @@ public class Screen3D{
 			update();
 			render();
 
+			glClearColor(0.2f, 0.375f ,0.6f, 1);
 			Display.sync(60);
 			Display.update();
 		}
@@ -42,22 +44,14 @@ public class Screen3D{
 
 	private void update(){
 		Engine.calculateDelta();
+		Engine.updateFPS();
+
 		player.handleInput();
 
 	}
 
-	private void render(){
-		Chunk[] chunks = Game.getGame().getWorld().getChunks();
-		for(int i = 0; i < chunks.length; i++){
-			Block[][][] blocks = chunks[i].getBlocks();
-			for(int x = 0; x < 16; x++){
-				for(int z = 0; z < 16; z++){
-					for(int y = 0; y < 64; y++){
-						blocks[x][y][z].draw();
-					}
-				}
-			}
-		}
+	public void render(){
+		Game.getGame().getWorld().render();
 
 	}
 

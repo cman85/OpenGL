@@ -37,8 +37,6 @@ public class Player extends Entity{
 		//Gravity - s(t) = -16t^2 + vt + s
 		//s is original height t is time and v is velocity
 
-		Display.setTitle(String.format("Location x:%f, y:%f, z:%f", getLocation().getX(), getLocation().getY(), getLocation().getZ()));
-
 		while(Keyboard.next()){
 			if(Keyboard.getEventKey() == Keyboard.KEY_ESCAPE && Keyboard.getEventKeyState())
 				if(Keyboard.isKeyDown(Keyboard.KEY_LSHIFT))

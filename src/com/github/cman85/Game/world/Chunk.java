@@ -1,6 +1,8 @@
 package com.github.cman85.Game.world;
 
-public class Chunk{
+import com.github.cman85.Game.Main.Renderable;
+
+public class Chunk implements Renderable{
 
 	private float x;
 	private float z;
@@ -19,10 +21,22 @@ public class Chunk{
 		for(int x = 0; x < 16; x++){
 			for(int z = 0; z < 16; z++){
 				for(int y = 0; y < 64; y++){
-					blocks[x][y][z] = new Block(BlockType.DIRT, new Location(this.world, x, y, z));
+					blocks[x][y][z] = new Block(BlockType.DIRT, new Location(this.world, x + this.x, y, z + this.z));
 				}
 			}
 		}
+	}
+
+	public void render(){
+		Block[][][] blocks = getBlocks();
+		for(int x = 0; x < 16; x++){
+			for(int z = 0; z < 16; z++){
+				for(int y = 0; y < 64; y++){
+					blocks[x][y][z].render();
+				}
+			}
+		}
+
 	}
 
 	public Block[][][] getBlocks(){
@@ -45,4 +59,11 @@ public class Chunk{
 	public void setX(float x){
 		this.x = x;
 	}
+	public float getZ(){
+		return z;
+	}
+	public void setZ(float z){
+		this.z = z;
+	}
+
 }
