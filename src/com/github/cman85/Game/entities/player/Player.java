@@ -1,5 +1,6 @@
 package com.github.cman85.Game.entities.player;
 
+import com.github.cman85.Game.Event.MoveEvent;
 import com.github.cman85.Game.Main.Main;
 import com.github.cman85.Game.entities.Entity;
 import com.github.cman85.Game.world.Location;
@@ -50,6 +51,12 @@ public class Player extends Entity{
 			getCamera().rotateX(Mouse.getDX());
 		}
 	}
+
+   @Override
+   public void onMove(MoveEvent event){
+        //TODO check physics
+
+   }
 
 	public Camera getCamera(){
 		return camera;

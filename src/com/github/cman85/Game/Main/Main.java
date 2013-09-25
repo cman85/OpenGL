@@ -1,9 +1,9 @@
 package com.github.cman85.Game.Main;
 
+import com.github.cman85.Game.world.PhysicsShape;
 import org.lwjgl.LWJGLException;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.DisplayMode;
-import org.lwjgl.opengl.GL11;
 
 import java.awt.*;
 
@@ -60,6 +60,7 @@ public class Main{
 	}
 
 	public static void cleanUp(){
+      PhysicsShape.cleanUp();
 		Display.destroy();
 	}
 

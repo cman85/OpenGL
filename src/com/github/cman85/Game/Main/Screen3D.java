@@ -1,17 +1,9 @@
 package com.github.cman85.Game.Main;
 
 import com.github.cman85.Game.entities.player.Player;
-import com.github.cman85.Game.world.Block;
-import com.github.cman85.Game.world.Chunk;
-import com.github.cman85.Game.world.Location;
-import org.lwjgl.LWJGLException;
 import org.lwjgl.opengl.Display;
 
-import static org.lwjgl.opengl.GL11.GL_COLOR_BUFFER_BIT;
-import static org.lwjgl.opengl.GL11.GL_DEPTH_BUFFER_BIT;
-import static org.lwjgl.opengl.GL11.glClear;
-import static org.lwjgl.opengl.GL11.glClearColor;
-import static org.lwjgl.opengl.GL11.glLoadIdentity;
+import static org.lwjgl.opengl.GL11.*;
 
 public class Screen3D implements Renderable{
 
@@ -62,8 +54,8 @@ public class Screen3D implements Renderable{
 	/*
 	* Model matrix - gives you the shape of the product. Your hallways, etc
 	 * Projection matrix - makes things look right. Image you're looking down a
-	 * hallway: The doors aren't facing you directly, they're angled. Texture
-	 * matrix - Self explanatory, adds the texture to the object.
+	 * hallway: The doors aren't facing you directly, they're angled.
+	 * Texture matrix - Self explanatory, adds the texture to the object.
 	 * 
 	 * Orthographic - the way objects literally are
 	 * Perspective - the way we see them

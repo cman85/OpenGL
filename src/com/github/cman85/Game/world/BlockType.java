@@ -11,19 +11,30 @@ public enum BlockType{
 	STONE("stone");
 
 	private Texture texture;
+   private PhysicsShape shape;
 
 	private BlockType(String textureName){
-		try{
-			texture = Engine.loadTexture(textureName);
-		}catch(IOException e){
-			e.printStackTrace();
-		}
+		 this(textureName, PhysicsShape.BLOCK);
 	}
+
+   private BlockType(String textureName, PhysicsShape shape){
+      try{
+         texture = Engine.loadTexture(textureName);
+      }catch(IOException e){
+         e.printStackTrace();
+      }
+      this.shape = shape;
+   }
+
 	public Texture getTexture(){
 		return texture;
 	}
 	public void setTexture(Texture texture){
 		this.texture = texture;
 	}
+
+   public PhysicsShape getPhysicsShape() {
+      return shape;
+   }
 }
 

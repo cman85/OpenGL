@@ -4,11 +4,15 @@ import com.github.cman85.Game.Main.Renderable;
 
 public class Chunk implements Renderable{
 
+   public static final int CHUNK_X = 16;
+   public static final int CHUNK_Y = 1;
+   public static final int CHUNK_Z = 16;
+
 	private float x;
 	private float z;
 
 	private World world;
-	private Block[][][] blocks = new Block[16][64][16];
+	private Block[][][] blocks = new Block[CHUNK_X][CHUNK_Y][CHUNK_Z];
 
 
 	public Chunk(World world, float x, float z){
@@ -18,9 +22,9 @@ public class Chunk implements Renderable{
 		generateBlocks();
 	}
 	private void generateBlocks(){
-		for(int x = 0; x < 16; x++){
-			for(int z = 0; z < 16; z++){
-				for(int y = 0; y < 64; y++){
+		for(int x = 0; x < CHUNK_X; x++){
+			for(int z = 0; z < CHUNK_Z; z++){
+				for(int y = 0; y < CHUNK_Y; y++){
 					blocks[x][y][z] = new Block(BlockType.DIRT, new Location(this.world, x + this.x, y, z + this.z));
 				}
 			}
@@ -29,9 +33,9 @@ public class Chunk implements Renderable{
 
 	public void render(){
 		Block[][][] blocks = getBlocks();
-		for(int x = 0; x < 16; x++){
-			for(int z = 0; z < 16; z++){
-				for(int y = 0; y < 64; y++){
+		for(int x = 0; x < CHUNK_X; x++){
+			for(int z = 0; z < CHUNK_Z; z++){
+				for(int y = 0; y < CHUNK_Y; y++){
 					blocks[x][y][z].render();
 				}
 			}
@@ -53,17 +57,13 @@ public class Chunk implements Renderable{
 	public void setWorld(World world){
 		this.world = world;
 	}
-	public float getX(){
-		return x;
+	public float getChunkX(){
+		return x / Chunk.CHUNK_X;
 	}
-	public void setX(float x){
-		this.x = x;
+
+	public float getChunkZ(){
+		return z / Chunk.CHUNK_Z;
 	}
-	public float getZ(){
-		return z;
-	}
-	public void setZ(float z){
-		this.z = z;
-	}
+
 
 }
