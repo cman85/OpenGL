@@ -14,6 +14,7 @@ public class Screen3D implements Renderable{
 	}
 
 	public void updateAndRender(){
+		glClearColor(0.2f, 0.375f ,0.6f, 1);
 
 		while(!Display.isCloseRequested() && Main.isRunning()){
 
@@ -26,7 +27,6 @@ public class Screen3D implements Renderable{
 			update();
 			render();
 
-			glClearColor(0.2f, 0.375f ,0.6f, 1);
 			Display.sync(60);
 			Display.update();
 		}
