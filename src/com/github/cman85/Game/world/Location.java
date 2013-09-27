@@ -24,6 +24,10 @@ public class Location {
 		this(world, x, y, z, 0, 0);
 	}
 
+   public Location(Location loc){
+      this(loc.getWorld(), loc.getX(), loc.getY(), loc.getZ(), loc.getPitch(), loc.getYaw());
+   }
+
 	public float getX() {
 		return x;
 	}

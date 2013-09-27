@@ -1,12 +1,14 @@
 package com.github.cman85.Game.world;
 
 import com.github.cman85.Game.Main.Engine;
+import com.github.cman85.Game.Physics.PhysicsShape;
 import org.newdawn.slick.opengl.Texture;
 
 import java.io.IOException;
 
 public enum BlockType{
 
+   AIR(),
 	DIRT("dirt"),
 	STONE("stone");
 
@@ -24,6 +26,10 @@ public enum BlockType{
          e.printStackTrace();
       }
       this.shape = shape;
+   }
+
+   private BlockType(){
+
    }
 
 	public Texture getTexture(){

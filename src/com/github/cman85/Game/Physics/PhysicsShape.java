@@ -1,4 +1,4 @@
-package com.github.cman85.Game.world;
+package com.github.cman85.Game.Physics;
 
 import org.lwjgl.BufferUtils;
 
@@ -130,15 +130,16 @@ public enum PhysicsShape {
    public int getVertexVBO() {
       return verticesVBO.get(this);
    }
-   public int getTextureVBO(){
+
+   public int getTextureVBO() {
       return textureVBO.get(this);
    }
 
-   public static void cleanUp(){
-      for(int handle: verticesVBO.values()){
+   public static void cleanUp() {
+      for(int handle : verticesVBO.values()) {
          glDeleteBuffers(handle);
       }
-      for(int handle: textureVBO.values()){
+      for(int handle : textureVBO.values()) {
          glDeleteTextures(handle);
       }
    }

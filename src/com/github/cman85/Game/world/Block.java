@@ -1,5 +1,6 @@
 package com.github.cman85.Game.world;
 
+import com.github.cman85.Game.Main.CachedBoolean;
 import com.github.cman85.Game.Main.Renderable;
 
 import static org.lwjgl.opengl.GL11.*;
@@ -8,14 +9,14 @@ import static org.lwjgl.opengl.GL15.glBindBuffer;
 
 public class Block implements Renderable{
 
-	private BlockType type;
+   private BlockType type;
 	private Location loc;
 
 	private static int amt = 0;
 
 	private boolean hasBeenRendered = false;
 	private float x = 0;
-	private boolean canDraw = false;
+	private CachedBoolean shouldDraw = CachedBoolean.UNSURE;
 
 	public Block(BlockType type, Location loc){
 		this.type = type;
@@ -29,6 +30,7 @@ public class Block implements Renderable{
          amt++;
       }
       if(!canDraw) return;  */
+      if(!shouldBeRendered()) return;
 
 		glPushMatrix();
 		{
@@ -57,11 +59,29 @@ public class Block implements Renderable{
 	}
 
 	public boolean shouldBeRendered(){
-		return true;//TODO
-	}
+		if(shouldDraw != CachedBoolean.UNSURE) return shouldDraw.value();
+      if(getType() == BlockType.AIR) return false;
+
+      boolean draw = true;
+
+      for(BlockFace face: BlockFace.values()){
+         Block relative = getRelative(face);
+         if(relative !=null && relative.getType() != BlockType.AIR){
+            shouldDraw = CachedBoolean.TRUE;
+            return true;
+         }
+      }
+      shouldDraw = CachedBoolean.FALSE;
+      return false;
+
+   }
 
 	public Block getRelative(BlockFace face){
 		Location otherBlock = new Location(loc.getWorld(), loc.getX() + face.x, loc.getY() + face.y, loc.getZ() + face.z);
 		return loc.getWorld().getBlockAt(otherBlock);
 	}
+
+   public BlockType getType() {
+      return type;
+   }
 }

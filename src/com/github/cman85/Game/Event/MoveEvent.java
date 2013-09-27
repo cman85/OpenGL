@@ -2,10 +2,15 @@ package com.github.cman85.Game.Event;
 
 public class MoveEvent extends Event implements Cancellable {
 
-   private float fromX, fromY, fromZ, toX, toY, toZ;
+   private float fromX;
+   private float fromY;
+   private float fromZ;
+   private float toX;
+   private float toY;
+   private float toZ;
    private boolean cancel = false;
 
-   public MoveEvent(float fromX, float fromY, float fromZ, float toX, float toY, float toZ){
+   public MoveEvent(float fromX, float fromY, float fromZ, float toX, float toY, float toZ) {
       this.fromX = fromX;
       this.fromY = fromY;
       this.fromZ = fromZ;
@@ -32,7 +37,7 @@ public class MoveEvent extends Event implements Cancellable {
 
    @Override
    public void setCancelled(boolean cancel) {
-       this.cancel = cancel;
+      this.cancel = cancel;
    }
 
    @Override
@@ -47,4 +52,17 @@ public class MoveEvent extends Event implements Cancellable {
    public float getToZ() {
       return toZ;
    }
+
+   public void setToX(float toX) {
+      this.toX = toX;
+   }
+
+   public void setToY(float toY) {
+      this.toY = toY;
+   }
+
+   public void setToZ(float toZ) {
+      this.toZ = toZ;
+   }
+
 }

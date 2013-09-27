@@ -1,6 +1,6 @@
 package com.github.cman85.Game.Main;
 
-import com.github.cman85.Game.world.PhysicsShape;
+import com.github.cman85.Game.Physics.PhysicsShape;
 import org.lwjgl.LWJGLException;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.DisplayMode;
