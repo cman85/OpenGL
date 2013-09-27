@@ -31,8 +31,8 @@ public abstract class Entity {
       );
       onMove(event);
       if(! event.isCancelled()) {
-         getLocation().setX(newX);
-         getLocation().setZ(newZ);
+         getLocation().setX(event.getToX());
+         getLocation().setZ(event.getToZ());
       }
       // Display.setTitle(String.format("Location x:%f, y:%f, z:%f", getLocation().getX(), getLocation().getY(), getLocation().getZ()));
    }
@@ -45,7 +45,7 @@ public abstract class Entity {
       );
       onMove(moveEvent);
       if(! moveEvent.isCancelled())
-         getLocation().setY(newY);
+         getLocation().setY(moveEvent.getToY());
    }
 
    public abstract void onMove(MoveEvent event);
